@@ -1,3 +1,5 @@
+using TextRPG.Models;
+
 namespace TextRPG.Utils;
 
 // 콘솔 관련 UI 유틸리티를 담당하는 클래스
@@ -21,5 +23,24 @@ public class ConsoleUI
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 ");
+    }
+    
+    // 아무 키나 누르면 계속 메세지 출력
+    public static void PressAnyKey()
+    {
+        Console.WriteLine("\n아무 키나 누르면 계속합니다.");
+        Console.ReadKey(true); // true면 입력한 키를 화면에 표시하지 않음.
+    }
+
+    // 게임 오버 메세지 출력
+    public static void ShowGameOver()
+    {
+        Console.Clear();
+        Console.WriteLine("\n╔══════════════════════════════════════════╗");
+        Console.WriteLine("║                                          ║");
+        Console.WriteLine("║            GAME OVER                     ║");
+        Console.WriteLine("║                                          ║");
+        Console.WriteLine("╚══════════════════════════════════════════╝\n");
+        Console.WriteLine("게임을 종료합니다.");
     }
 }
