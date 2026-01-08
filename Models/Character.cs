@@ -32,7 +32,19 @@ public abstract class Character
     #endregion
 
     #region 메서드
+    // 공통으로 사용할 메서드들
     
+    // 캐릭터 스탯 출력
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"==== {Name} 정보 ====");
+        Console.WriteLine($"레벨 {Level}");
+        Console.WriteLine($"체력 {CurrentHP}/{MaxHP}");
+        Console.WriteLine($"마나 {CurrentMP}/{MaxMP}");
+        Console.WriteLine($"공격력 {AttackPower}");
+        Console.WriteLine($"방어력 {Defense}");
+        Console.WriteLine($"=====================");
+    }
 
     #endregion
 }
