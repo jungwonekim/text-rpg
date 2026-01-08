@@ -118,13 +118,10 @@ public class GameManager
         Player = new Player(name, job);
         Console.WriteLine($"\n{name}님, {job}직업으로 캐릭터가 생성되었습니다.");
         
-        // 테스트 코드
-        // Console.WriteLine($"Player HP: {Player.CurrentHP}");
-        // Console.WriteLine($"Player MP: {Player.CurrentMP}");
-        // Console.WriteLine($"Player ATK: {Player.AttackPower}");
-        // Console.WriteLine($"Player DEF: {Player.Defense}");
+        // 적 캐릭터 생성
+        Enemy enemy = Enemy.CreateEnemy(Player.Level);
+        enemy.DisplayInfo();
         
-        // Player.DisplayInfo();
         ConsoleUI.PressAnyKey();
     }
     #endregion
