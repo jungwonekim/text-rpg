@@ -31,7 +31,13 @@ public class BattleSystem
                 return false; // 전투 패배
             }
             // TODO: 적 사망여부 판단
+            if (!enemy.IsAlive)
+            {
+                break;
+            }
             // TODO: 적 턴
+            EnemyTurn(player, enemy);
+            
             turn++;
         }
         
@@ -105,7 +111,13 @@ public class BattleSystem
 
     #region 적 턴
 
-    
+    private void EnemyTurn(Player player, Enemy enemy)
+    {
+        Console.WriteLine($"{enemy.Name}의 턴!");
 
+        int damage = enemy.Attack(player);
+        Console.WriteLine($"{enemy.Name}의 공격! {player.Name}에게 {damage}의 피해를 입혔습니다.");
+        Console.WriteLine($"{player.Name} 의 남은 HP: {player.CurrentHP}/{player.MaxHP}");
+    }
     #endregion
 }
