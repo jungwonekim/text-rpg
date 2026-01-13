@@ -1,5 +1,5 @@
 using TextRPG.Models;
-namespace BssenTextRPG.Systems;
+namespace TextRPG.Systems;
 
 public class BattleSystem
 {
