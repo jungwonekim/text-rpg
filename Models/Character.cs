@@ -59,6 +59,22 @@ public abstract class Character
         Console.WriteLine($"방어력 {Defense}");
         Console.WriteLine($"=====================");
     }
+    
+    // HP recovery method
+    public int HealUp(int amount)
+    {
+        int before = CurrentHP;
+        CurrentHP = Math.Min(MaxHP, CurrentHP + amount);
+        return CurrentHP - before; // return how much hp has it recovered
+    }
+    // MP recovery method
+    public int HealMp(int amount)
+    {
+        int before = CurrentMP;
+        CurrentMP = Math.Min(MaxMP, CurrentMP + amount);
+        return CurrentMP - before; // return how much mp has it recovered
+    }
+    
 
     #endregion
 }
