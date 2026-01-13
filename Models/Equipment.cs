@@ -32,6 +32,7 @@ public class Equipment: Item
     public override bool Use(Player player)
     {
         // 장비 착용 로직
+        player.EquipItem(this); // 자기 자신 파라미터로 전달
         return true; 
     }
 
