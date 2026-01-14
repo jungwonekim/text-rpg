@@ -1,4 +1,5 @@
 using TextRPG.Models;
+using TextRPG.Utils;
 
 namespace TextRPG.Systems;
 
@@ -84,6 +85,7 @@ public class InventorySystem
                     break;
                 case "2":
                     // 아이템 버리기 로직
+                    DropItem();
                     break;
                 case "0":
                     return;
@@ -120,7 +122,33 @@ public class InventorySystem
             } else if (itemIndex != 0)
             {
                 Console.WriteLine("잘못된 선택입니다.");
+                ConsoleUI.PressAnyKey();
             }
+        }
+    }
+    #endregion
+
+    #region 아이템 버리기
+
+    private void DropItem()
+    {
+        if (Items.Count == 0) return;
+        
+        Console.WriteLine("\n버릴 아이템 번호 (0: 취소)> ");
+
+        if (int.TryParse(Console.ReadLine(), out int itemIndex) && itemIndex > 0 && itemIndex <= Items.Count)
+        {
+            Item item = Items[itemIndex - 1];
+            Console.Write($"정말 {item.Name}을 버리겠습니까? (y/n)");
+            if (Console.ReadLine()?.ToLower() == "y")
+            {
+                RemoveItem(item);
+            }
+        }
+        else if (itemIndex != 0)
+        {
+            Console.WriteLine("잘못된 선택입니다.");
+            ConsoleUI.PressAnyKey();
         }
     }
     #endregion
