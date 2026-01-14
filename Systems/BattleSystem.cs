@@ -23,19 +23,19 @@ public class BattleSystem
         while (player.IsAlive && enemy.IsAlive)
         {
             Console.WriteLine($"\n====== 턴 {turn} ======");
-            // TODO: 플레이어 턴
+            // 플레이어 턴
             if (!PlayerTurn(player, enemy))
             {
                 // 플레이어 도망
                 Console.WriteLine("\n전투에서 도망쳤습니다...");
                 return false; // 전투 패배
             }
-            // TODO: 적 사망여부 판단
+            // 적 사망여부 판단
             if (!enemy.IsAlive)
             {
                 break;
             }
-            // TODO: 적 턴
+            // 적 턴
             EnemyTurn(player, enemy);
             
             turn++;
